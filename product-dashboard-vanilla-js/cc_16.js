@@ -16,3 +16,16 @@ function fetchProductsThen() {
   }
 // Call the function to fetch products using .then()
 
+// Task 3: Fetch using async/await
+async function fetchProductsAsync() {
+    try {
+      const response = await fetch('https://www.course-api.com/javascript-store-products');
+      const products = await response.json();
+  
+      // Call helper to display them
+      displayProducts(products);
+    } catch (error) {
+      // Handle error using reusable handler
+      handleError(error);
+    }
+  }
