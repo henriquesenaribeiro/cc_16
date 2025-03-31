@@ -67,3 +67,9 @@ function displayProducts(products) {
       container.appendChild(card);
     });
   }
+
+// Task 5: Error handler for all fetches
+function handleError(error) {
+    console.error("An error occurred:", error.message);
+  }
+// Call the function to fetch products using async/await
