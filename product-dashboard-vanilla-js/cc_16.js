@@ -29,3 +29,41 @@ async function fetchProductsAsync() {
       handleError(error);
     }
   }
+
+// Task 4: Display Products
+function displayProducts(products) {
+    const container = document.getElementById('product-container');
+    container.innerHTML = ''; // Clear any existing content
+  
+    // Limit to first 5 products
+    const firstFive = products.slice(0, 5);
+  
+    firstFive.forEach(product => {
+      const { name, price, image } = product.fields;
+  
+      // Create product card
+      const card = document.createElement('div');
+      card.classList.add('product-card');
+  
+      // Add image
+      const img = document.createElement('img');
+      img.src = image[0].url;
+      img.alt = name;
+  
+      // Add name
+      const title = document.createElement('h2');
+      title.textContent = name;
+  
+      // Add price
+      const cost = document.createElement('p');
+      cost.textContent = `$${(price / 100).toFixed(2)}`; // convert cents to dollars
+  
+      // Append to card
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(cost);
+  
+      // Append card to container
+      container.appendChild(card);
+    });
+  }
